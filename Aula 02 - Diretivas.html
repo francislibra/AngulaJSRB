@@ -24,13 +24,13 @@
         angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope) {
                 // Enviar uma mensagem para a view
                 $scope.app = "Lista Telefônica";
+                $scope.contatos = [
+                    {nome: "Pedro", telefone: "4545-7889"},
+                    {nome: "Ana  ", telefone: "4796-7855"},
+                    {nome: "Maria", telefone: "4545-7834"}
+                ];
 
             });
-        $cope.contatos = [
-            {nome: "Pedro", telefone: "4545-7889"},
-            {nome: "Ana  ", telefone: "4796-7855"},
-            {nome: "Maria", telefone: "4545-7834"}
-        ];
     </script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
@@ -43,10 +43,15 @@
                  <th>Telefone </th>
               </tr>
               <tr ng-repeat="contato in contatos">
-                  <td>{{ contato.nome}}</td>
-                  <td>{{ contato.telefone}}</td>
-
-              </tr>
+                <!-- Forma 1 -->
+                <td>{{ contato.nome}}</td>
+                <td>{{ contato.telefone}}</td>
+                <!-- Forma 2 -->
+                <!-- <td ng-repeat="(key, value) int contato">
+                      {{value}}
+                </td> -->
+                   
+                </tr>
           </table>
     </div>
 </body>
